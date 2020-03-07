@@ -1,0 +1,72 @@
+﻿@model IEnumerable<AssignmentT1809ELateFine.Models.LateFine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisciplineType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisciplineAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmitTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisciplineType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisciplineAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmitTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div id="fineSummary">
+
+</div>
+
+<div id="loadingElement" style="display: none">
+    Loading Report... :3
+</div>
+
+@Ajax.ActionLink("View Report Here", "AjaxFineSummary",
+    new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loadingElement",
+        UpdateTargetId = "fineSummary"
+    })
+
+
+
+

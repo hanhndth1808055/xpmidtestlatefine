@@ -1,0 +1,50 @@
+﻿@model AssignmentT1809ELateFine.Models.LateFine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LateFine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RollNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisciplineType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisciplineType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisciplineAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisciplineAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmitTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmitTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

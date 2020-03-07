@@ -1,0 +1,64 @@
+﻿@model AssignmentT1809ELateFine.Models.LateFine
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>LateFine</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.RollNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RollNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RollNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DisciplineType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.DisciplineType, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DisciplineType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DisciplineAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DisciplineAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DisciplineAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @* <div class="form-group"> *@
+        @*     @Html.LabelFor(model => model.SubmitTime, htmlAttributes: new { @class = "control-label col-md-2" }) *@
+        @*     <div class="col-md-10"> *@
+        @*         @Html.EditorFor(model => model.SubmitTime, new { htmlAttributes = new { @class = "form-control", @readonly = true, @value = System.DateTime.Now.toDa } }) *@
+        @*         @Html.ValidationMessageFor(model => model.SubmitTime, "", new { @class = "text-danger" }) *@
+        @*     </div> *@
+        @* </div> *@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
